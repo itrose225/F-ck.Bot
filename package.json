@@ -1,0 +1,22 @@
+{
+  "name": "fuck-bot-online",
+  "description": "Simple fuck you bot",
+  "version": "0.0.1",
+  "private": false,
+  "license": "None",
+  "author": "SourceCode.-",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "start": "node bot.js",
+    "test": "mocha --exit test/*.test.js"
+  },
+  "dependencies": {
+    "dotenv": "8.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.0.0",
+    "supertest": "^4.0.2"
+  }
+}

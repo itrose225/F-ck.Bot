@@ -1,5 +1,7 @@
 # Prerequisites
 *.d
+*.png
+*.env
 
 # Compiled Object files
 *.slo
