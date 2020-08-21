@@ -65,7 +65,7 @@ client.on('message', msg => {
         msg.channel.send('fuck you ' + msg.author.username);
     }
 
-    if(msg.content.length > 100 && msg.author.id != '740049324305678357'){
+    if(msg.content.length > 200 && msg.author.id != '740049324305678357'){
         msg.reply('too long, didnt read, didnt ask, fuck off');
     }
 
