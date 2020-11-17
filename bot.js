@@ -152,6 +152,7 @@ client.on('message', msg => {
                         "\n• !nsfw give you a nsfw image (crazy i know), and is for sick fucks like my friend kealey that asked for this feature (do not spam this command due to the delay of getting the image)" +
                         "\n• !-nsfw deletes the last nsfw image sent in case you dont want to look at it anymore (bot requires admin privs)" +
                         "\n• !fuckyou followed by an @ lets you and the bot both say fuck you to that person!" +
+                        "\n• !stats followed by a Rainbow 6 Siege PC Username returns the current rank and MMR of that account!" +
                         "\n• I take requests for features, dm SourceCode.- to submit one" 
                         );
     }
