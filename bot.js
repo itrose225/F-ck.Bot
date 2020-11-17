@@ -32,9 +32,9 @@ async function getVisual() {
         });
 
         await page.goto(URL) 
-        await page.click('#intro-settings > div > div > div > div:nth-child(3) > div:nth-child(3)')
+        await page.click('#root > div > div.app-page > div.nsfw-warning > div.nsfw-warning__buttons > button.nsfw-warning__accept-button')
         await sleep(4000)
-        await page.click('#media-container > div > div > div > div:nth-child(1)')
+        await page.click('#root > div > div.app-page > main > div.vertical-view > div > div:nth-child(1) > div:nth-child(3) > a > img')
         await page.screenshot({ path: 'nsfw.png' })
 
         await browser.close()
@@ -46,6 +46,33 @@ async function getVisual() {
     } catch (error) {
         console.error(error)
     }
+}
+
+async function getStats(username, channel) {
+    try {
+        const URLS = 'https://r6.tracker.network/profile/pc/' + username
+        const browserS = await puppeteer.launch()
+        const pageS = await browserS.newPage()
+
+        await pageS.setViewport({
+            width: 640,
+            height: 480,
+            deviceScaleFactor: 1,
+        });
+
+        await pageS.goto(URLS)
+        var linkTexts = await pageS.$$eval(".trn-defstat__value",elements=> elements.map(item=>item.textContent))
+        //console.log(linkTexts)
+        ret = linkTexts[linkTexts.length-2]
+        ret2 = linkTexts[linkTexts.length-4]
+
+        await browserS.close()
+
+    } catch (error) {
+        console.error(error)
+    }
+    channel.send(username + " is at " + ret + " elo. And is rank " + ret2 + ". Should probably do better")
+    return ret
 }
 
 function getRandomInt(min, max) {
@@ -171,5 +198,12 @@ client.on('message', msg => {
         const role = msg.guild.roles.cache.find(role => role.name === 'Fuck Bot');
         client.user.roles.add(role)
     }
+
+    if(msg.content.toLowerCase().includes('!stats-') && msg.author.id != '740049324305678357'){
+        var cont = '\n'; 
+        cont = cont + msg.content.substr(7,msg.content.length-1);
+        getStats(cont, msg.channel);
+    }
+
 
 });
