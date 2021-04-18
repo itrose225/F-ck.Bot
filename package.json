@@ -13,7 +13,9 @@
     "test": "mocha --exit test/*.test.js"
   },
   "dependencies": {
-    "dotenv": "8.2.0"
+    "discord.js": "^12.5.3",
+    "dotenv": "8.2.0",
+    "puppeteer": "^8.0.0"
   },
   "devDependencies": {
     "mocha": "^8.0.0",
