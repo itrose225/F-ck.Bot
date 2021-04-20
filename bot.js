@@ -103,7 +103,7 @@ client.on('message', msg => {
     if(msg.author.id === '601473450934140929'){ //if user is grant
         var ran = getRandomInt(0,50);
         if (ran === 1){
-            msg.channel.send('fuck you specially ' + msg.author.username);
+            msg.channel.send('fuck you especially ' + msg.author.username);
         }
     }
 
