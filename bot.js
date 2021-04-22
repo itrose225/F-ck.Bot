@@ -87,9 +87,11 @@ client.on('message', msg => {
     //console.log(client.user.id)
     //console.log("id:" + msg.author.id)
 
-    var ran = getRandomInt(0,65);
-    if (ran === 1 && msg.author.id != '740049324305678357'){
-        msg.channel.send('fuck you ' + msg.author.username);
+    if (msg.author.id != '740049324305678357'){
+    	var ran = getRandomInt(0,65);
+    	if (ran === 1){
+        	msg.channel.send('fuck you ' + msg.author.username);
+        }
     }
 
     if(msg.content.length > 200 && msg.author.id != '740049324305678357'){
